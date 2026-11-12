@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NIKIFOR media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: light editorial scroll — Paper ground, Prata serif display + Inter, oxblood/wine accents, champagne hairlines, screenshot-backed proof. Committed single-light (brand identity: тихо · дорого · по делу). */
+:root{
+  --paper:#f4f1ec;
+  --panel:#efebe2;
+  --ink:#1a1714;
+  --oxblood:#6e1423;
+  --wine:#8e1e33;
+  --champagne:#b9a888;
+  --muted:#6b645d;
+  --muted-2:#938c82;
+  --line:rgba(26,23,20,.12);
+  --line-soft:rgba(26,23,20,.07);
+  color-scheme:light;
+  --display:"Prata",Georgia,"Times New Roman",serif;
+  --body:"Inter",system-ui,-apple-system,sans-serif;
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:60}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;font-weight:400;letter-spacing:-.005em;line-height:1.08}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--oxblood)}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(244,241,236,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:13px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mark{width:34px;height:34px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.84rem;letter-spacing:.02em;color:var(--ink)}
+.brand .bt{font-family:var(--display);font-size:1.02rem;letter-spacing:.04em}
+.nav-links{display:flex;gap:28px;font-size:.86rem;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:.8rem;font-weight:600;letter-spacing:.02em;color:var(--paper);background:var(--oxblood);padding:9px 17px;border-radius:2px;white-space:nowrap}
+.nav-cta:hover{background:var(--wine)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(58px,10vw,108px) clamp(40px,7vw,68px);position:relative}
+.hero h1{font-size:clamp(3rem,9vw,6.1rem);line-height:1.02}
+.hero h1 .nm{color:var(--oxblood)}
+.hero .lede{max-width:48ch;margin-top:28px;font-size:clamp(1.05rem,2.3vw,1.28rem);color:var(--muted);font-weight:400;line-height:1.55}
+.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
+.btn{font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:2px;display:inline-flex;align-items:center;gap:9px;transition:transform .15s,background .15s,border-color .15s,color .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--oxblood);color:var(--paper)}
+.btn-primary:hover{background:var(--wine)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--oxblood);color:var(--oxblood)}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;margin-top:clamp(46px,7vw,70px);background:var(--line);border:1px solid var(--line);overflow:hidden}
+.stat{background:var(--paper);padding:28px 26px}
+.stat .n{font-family:var(--display);font-size:clamp(2rem,5vw,3rem);line-height:1}
+.stat .n .u{color:var(--oxblood)}
+.stat .l{margin-top:14px;font-size:.84rem;color:var(--muted);font-weight:400;line-height:1.4}
+@media(max-width:620px){.stats{grid-template-columns:1fr}}
+
+/* sections */
+section{padding-block:clamp(58px,8vw,94px)}
+.sec-head{display:flex;flex-direction:column;gap:16px;max-width:62ch;margin-bottom:clamp(36px,5vw,54px)}
+.sec-head h2{font-size:clamp(1.9rem,4.6vw,3rem)}
+.sec-head p{font-family:var(--body);color:var(--muted);font-size:1.02rem;max-width:54ch;line-height:1.55}
+.subhead{margin-top:clamp(50px,7vw,76px)}
+
+/* advantages */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:860px){.adv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.adv-grid{grid-template-columns:1fr}}
+.adv{background:var(--paper);padding:30px 26px 32px;display:flex;flex-direction:column;gap:13px;min-width:0;transition:background .18s}
+.adv:hover{background:var(--panel)}
+.adv .ix{font-family:var(--display);font-size:1.05rem;color:var(--champagne)}
+.adv h3{font-family:var(--body);font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.adv p{color:var(--muted);font-size:.94rem;line-height:1.55}
+
+/* services */
+.svc-lead{background:var(--ink);color:var(--paper);padding:clamp(30px,4vw,48px);position:relative;overflow:hidden}
+.svc-lead .tag{font-size:.74rem;font-weight:700;letter-spacing:.14em;color:var(--champagne);text-transform:uppercase}
+.svc-lead h3{font-family:var(--display);color:var(--paper);font-size:clamp(1.7rem,4vw,2.5rem);margin-top:14px;max-width:16ch}
+.svc-lead p{color:rgba(244,241,236,.72);margin-top:18px;max-width:52ch;font-size:1.02rem;line-height:1.55}
+.svc-lead .ff{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.svc-lead .ff span{border:1px solid rgba(185,168,136,.4);color:var(--champagne);border-radius:2px;padding:7px 14px;font-size:.82rem;font-weight:500}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:none}
+@media(max-width:860px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.svc-grid{grid-template-columns:1fr}}
+.svc{background:var(--paper);padding:28px 24px 30px;display:flex;flex-direction:column;gap:11px;min-width:0;transition:background .18s}
+.svc:hover{background:var(--panel)}
+.svc .si{font-family:var(--display);font-size:1.3rem;color:var(--oxblood);line-height:1}
+.svc h4{font-family:var(--body);font-size:1.06rem;font-weight:700;margin:0;letter-spacing:-.01em}
+.svc p{color:var(--muted);font-size:.9rem;line-height:1.5}
+.svc .add{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);margin-top:2px}
+
+/* featured case */
+.feature{background:var(--panel);border:1px solid var(--line);padding:clamp(30px,4vw,46px);position:relative;overflow:hidden}
+.feature .tag{font-size:.74rem;font-weight:700;letter-spacing:.12em;color:var(--oxblood);text-transform:uppercase}
+.feature h3{font-size:clamp(1.7rem,4vw,2.5rem);margin-top:16px;max-width:18ch}
+.feature .desc{font-family:var(--body);color:var(--muted);margin-top:18px;max-width:58ch;font-size:1.02rem;line-height:1.6}
+.fmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:30px;background:var(--line);border:1px solid var(--line)}
+.fm{background:var(--paper);padding:22px 20px}
+.fm .n{font-family:var(--display);font-size:clamp(1.6rem,4vw,2.3rem);color:var(--oxblood);line-height:1}
+.fm .l{margin-top:10px;font-size:.76rem;color:var(--muted);font-weight:500;letter-spacing:.02em}
+@media(max-width:460px){.fmetrics{grid-template-columns:1fr}}
+
+/* proof cases */
+.proof{background:var(--paper);border:1px solid var(--line);overflow:hidden;min-width:0;transition:border-color .18s}
+.proof:hover{border-color:var(--champagne)}
+.proof + .proof{margin-top:16px}
+.proof-head{padding:28px 26px 0;display:flex;flex-wrap:wrap;align-items:flex-start;gap:20px 30px;justify-content:space-between}
+.proof-id{min-width:0;display:flex;flex-direction:column;gap:10px}
+.proof-id .meta{font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--oxblood);text-transform:uppercase}
+.proof-id h3{font-size:1.5rem;letter-spacing:-.01em}
+.proof-id .geo{font-size:.86rem;color:var(--muted);font-weight:500}
+.pm{display:flex;gap:28px;flex-wrap:wrap;flex-shrink:0}
+.pm>div{min-width:0}
+.pm b{font-family:var(--display);color:var(--oxblood);font-size:1.7rem;font-weight:400;display:block;line-height:1}
+.pm span{font-size:.72rem;color:var(--muted);font-weight:500;display:block;margin-top:8px}
+.proof figure{margin:0;padding:22px 26px 26px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.proof img{display:block;width:100%;border-radius:4px;border:1px solid var(--line);background:#fff}
+@media(max-width:720px){.proof img{width:auto;min-width:720px;max-width:none}}
+.proof figcaption{font-family:var(--body);font-size:.7rem;color:var(--muted-2);margin-top:12px;letter-spacing:.04em}
+.proof figcaption .swipe{color:var(--oxblood)}
+
+/* portfolio grid */
+.port{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:860px){.port{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.port{grid-template-columns:1fr}}
+.pcard{background:var(--paper);padding:26px 24px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:background .18s}
+.pcard:hover{background:var(--panel)}
+.pcard .meta{font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--oxblood);text-transform:uppercase}
+.pcard h3{font-size:1.3rem;letter-spacing:-.01em}
+.pcard .geo{font-size:.82rem;color:var(--muted-2);font-weight:600}
+.pcard p{font-family:var(--body);color:var(--muted);font-size:.92rem;line-height:1.55;margin-top:auto;padding-top:6px}
+
+/* chips */
+.chips-block{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:8px}
+@media(max-width:700px){.chips-block{grid-template-columns:1fr;gap:28px}}
+.chips-block .ct{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:2px;padding:9px 16px;font-size:.88rem;font-weight:500;color:var(--ink)}
+.chip.on{border-color:var(--oxblood);color:var(--oxblood)}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:760px){.proc{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.proc{grid-template-columns:1fr}}
+.step{background:var(--paper);padding:28px 24px 32px;display:flex;flex-direction:column;gap:13px}
+.step .no{font-family:var(--display);font-size:1.7rem;color:var(--champagne)}
+.step h3{font-family:var(--body);font-size:1.04rem;font-weight:700;letter-spacing:-.01em}
+.step p{color:var(--muted);font-size:.9rem;line-height:1.55}
+
+/* contact */
+.contact-band{background:var(--ink);color:var(--paper);padding:clamp(34px,5vw,58px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.contact-band .eyebrow{color:var(--champagne)}
+.contact-band h2{color:var(--paper);font-size:clamp(1.9rem,5vw,3rem)}
+.contact-band p{font-family:var(--body);color:rgba(244,241,236,.72);max-width:48ch;font-size:1.02rem;line-height:1.55}
+.contact-actions{display:flex;flex-wrap:wrap;gap:13px;justify-content:center;margin-top:10px}
+.contact-band .btn-ghost{border-color:rgba(185,168,136,.5);color:var(--champagne)}
+.contact-band .btn-ghost:hover{border-color:var(--champagne);color:var(--paper)}
+.contact-raw{display:flex;flex-wrap:wrap;gap:6px 26px;justify-content:center;margin-top:10px;font-family:var(--body);font-size:.86rem;color:var(--champagne)}
+.contact-raw span{user-select:all}
+
+footer{padding-block:38px 46px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;color:var(--muted-2);font-size:.82rem}
+footer .brand .bt{font-size:.95rem}
+footer .tag{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem}
+
+.reveal{opacity:1}
+@media(prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px;border-radius:2px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark">NM</span><span class="bt">NIKIFOR MEDIA</span></a>
+    <div class="nav-links">
+      <a href="#adv">Почему мы</a>
+      <a href="#services">Услуги</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#process">Процесс</a>
+    </div>
+    <a class="nav-cta" href="#contact">Связаться</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Performance-маркетинг · Meta Ads</span>
+    <h1 style="margin-top:22px">Меньше шума. <span class="nm">Больше смысла.</span></h1>
+    <p class="lede">Запускаем и масштабируем рекламу в Facebook и Instagram для бизнесов, которым нужен предсказуемый результат: заявки и продажи, а не «охваты» в отчёте.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#cases">Наши результаты →</a>
+      <a class="btn btn-ghost" href="#services">Что мы делаем</a>
+    </div>
+
+  </div>
+</header>
+
+<section id="adv">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Почему мы</span>
+      <h2>Полная команда трафика в одном подрядчике</h2>
+      <p>Стратегия, креативы, запуск, аналитика и оптимизация. Вам не нужно собирать это из пяти разных людей.</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv reveal"><span class="ix">01</span><h3>Полный цикл под ключ</h3><p>От аудита и медиаплана до еженедельной оптимизации. Вы получаете результат, а не набор задач для контроля.</p></div>
+      <div class="adv reveal"><span class="ix">02</span><h3>Русско-, украино- и англоязычные аудитории</h3><p>Профильная экспертиза по аудиториям СНГ в Европе и диаспоре, а также англоязычные рынки, от месседжа до визуала.</p></div>
+      <div class="adv reveal"><span class="ix">03</span><h3>Лидген с автоматизацией</h3><p>Настраиваем автоматическую передачу заявок: лид падает менеджеру за секунды, ни один не теряется.</p></div>
+      <div class="adv reveal"><span class="ix">04</span><h3>Прозрачная еженедельная отчётность</h3><p>Понятные отчёты по креативам, аудиториям и площадкам. Видно, что именно приносит заявки.</p></div>
+      <div class="adv reveal"><span class="ix">05</span><h3>Собственный продакшн креативов</h3><p>Делаем креативы сами и тестируем десятки гипотез, а не полагаемся на одну.</p></div>
+      <div class="adv reveal"><span class="ix">06</span><h3>Работаем на смысл, а не на лайки</h3><p>Считаем в заявках, продажах и ROAS. Красивые цифры охвата без результата нам не интересны.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Услуги</span>
+      <h2>Трафик в центре, остальное вокруг него</h2>
+      <p>Наше главное направление это реклама Meta Ads. Но чтобы трафик превращался в деньги, мы закрываем и то, что вокруг него: сайт, CRM, видео и контент.</p>
+    </div>
+
+    <div class="svc-lead reveal">
+      <span class="tag">Главное направление</span>
+      <h3>Реклама Meta Ads в Facebook и Instagram</h3>
+      <p>Стратегия, креативы, запуск и оптимизация кампаний на заявки и продажи. Мультигео, аналитика и еженедельная отчётность: то, с чего начинается результат.</p>
+      <div class="ff">
+        <span>Стратегия и медиаплан</span><span>Креативы</span><span>Запуск и тесты</span><span>Оптимизация</span><span>Отчётность</span>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal"><span class="add">Дополнительно</span><span class="si">◇</span><h4>Разработка сайтов</h4><p>Лендинги, корпоративные сайты и интернет-магазины под трафик. Next.js, адаптив, аналитика и пиксель из коробки.</p></div>
+      <div class="svc reveal"><span class="add">Дополнительно</span><span class="si">◇</span><h4>CRM-системы</h4><p>Внедрение и настройка под отдел продаж: воронки, автоматизация заявок, интеграция с рекламой и мессенджерами.</p></div>
+      <div class="svc reveal"><span class="add">Дополнительно</span><span class="si">◇</span><h4>Видеомонтаж</h4><p>Рекламные ролики, Reels и Shorts, UGC-формат. Монтаж под площадку и под воронку, а не просто «красиво».</p></div>
+      <div class="svc reveal"><span class="add">Дополнительно</span><span class="si">◇</span><h4>SMM</h4><p>Ведение Instagram и Facebook: контент-план, визуал, тексты и работа с аудиторией, чтобы профиль продавал.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Кейсы</span>
+      <h2>Результаты, подкреплённые скриншотами</h2>
+      <p>Цифры прямо из отчётов Meta Ads Manager: объёмы лидов, охват и частота по реальным проектам.</p>
+    </div>
+
+    <div class="feature reveal">
+      <span class="tag">E-commerce · Украина</span>
+      <h3>Dzerkala.com.ua</h3>
+      <p class="desc">Холодный трафик с нуля: структура из 5 ад-сетов, LAL-аудитория из CRM (~987 покупателей) и еженедельные итерации креативов на базе AI-визуалов. За первый месяц реклама окупилась в 6,49 раза.</p>
+      <div class="fmetrics">
+        <div class="fm"><div class="n tnum" data-to="6.49" data-suffix="×" data-dec="2">6.49×</div><div class="l">ROAS</div></div>
+        <div class="fm"><div class="n tnum" data-to="48">48</div><div class="l">заказов</div></div>
+        <div class="fm"><div class="n tnum" data-to="30">30</div><div class="l">дней работы</div></div>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <article class="proof reveal">
+      <div class="proof-head">
+        <div class="proof-id">
+          <span class="meta">Инфобизнес</span>
+          <h3>Исследование родословной</h3>
+          <span class="geo">Украина · вебинарная воронка, лиды с сайта</span>
+        </div>
+        <div class="pm">
+          <div><b class="tnum">2 079</b><span>лидов</span></div>
+          <div><b class="tnum">624 896</b><span>охват / мес</span></div>
+          <div><b class="tnum">$0.63</b><span>цена лида</span></div>
+        </div>
+      </div>
+      <figure>
+        <img src="case-leads.jpg" alt="Отчёт Meta Ads Manager: 2 079 лидов, охват 624 896" loading="lazy">
+        <figcaption>Скриншот Meta Ads Manager · август 2026</figcaption>
+      </figure>
+    </article>
+
+    <article class="proof reveal">
+      <div class="proof-head">
+        <div class="proof-id">
+          <span class="meta">E-commerce · изделия из дерева</span>
+          <h3>Продажа изделий из дерева через переписки</h3>
+          <span class="geo">Facebook + Instagram Direct</span>
+        </div>
+        <div class="pm">
+          <div><b class="tnum">566</b><span>переписок</span></div>
+          <div><b class="tnum">249 893</b><span>охват / мес</span></div>
+          <div><b class="tnum">$0.8</b><span>цена сообщения</span></div>
+        </div>
+      </div>
+      <figure>
+        <img src="case-direct.jpg" alt="Отчёт Meta Ads Manager: 566 начатых переписок, продажа изделий из дерева" loading="lazy">
+        <figcaption>Скриншот Meta Ads Manager · август 2026</figcaption>
+      </figure>
+    </article>
+
+    <article class="proof reveal">
+      <div class="proof-head">
+        <div class="proof-id">
+          <span class="meta">Esports · Prime League</span>
+          <h3>CS2-турниры с призовыми</h3>
+          <span class="geo">Международное · EN · лиды с сайта</span>
+        </div>
+        <div class="pm">
+          <div><b class="tnum">261</b><span>лид / неделя</span></div>
+          <div><b class="tnum">52 315</b><span>охват</span></div>
+          <div><b class="tnum">$1.93</b><span>цена лида</span></div>
+        </div>
+      </div>
+      <figure>
+        <img src="prime-league.jpg" alt="Отчёт Meta Ads Manager: Prime League, 261 лид, охват 52 315" loading="lazy">
+        <figcaption>Скриншот Meta Ads Manager · август 2026</figcaption>
+      </figure>
+    </article>
+
+    <article class="proof reveal">
+      <div class="proof-head">
+        <div class="proof-id">
+          <span class="meta">Энергетика · SG Group</span>
+          <h3>Solar Glass, солнечные станции</h3>
+          <span class="geo">Украина · частные домохозяйства</span>
+        </div>
+        <div class="pm">
+          <div><b class="tnum">86</b><span>лидов с креатива</span></div>
+          <div><b class="tnum">68 082</b><span>охват / мес</span></div>
+          <div><b class="tnum">$4.20</b><span>цена лида</span></div>
+        </div>
+      </div>
+      <figure>
+        <img src="solar-glass.jpg" alt="Отчёт Meta Ads Manager: Solar Glass, 86 лидов с креатива, охват 68 082" loading="lazy">
+        <figcaption>Скриншот Meta Ads Manager · июль и август 2026</figcaption>
+      </figure>
+    </article>
+
+    <div class="sec-head subhead reveal">
+      <span class="eyebrow">Ещё проекты</span>
+      <h2>Другие ниши и рынки</h2>
+    </div>
+    <div class="port">
+      <div class="pcard reveal">
+        <span class="meta">AI / Трейдинг</span>
+        <h3>Signal AI</h3>
+        <span class="geo">Африка · Индия</span>
+        <p>AI-инструмент анализа торговых графиков. Креативы и гео-масштабирование, рекламные тексты RU/EN, воронка через Telegram.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="meta">Психология</span>
+        <h3>Юлия Копыткова</h3>
+        <span class="geo">Рим · онлайн</span>
+        <p>Премиальное позиционирование в нише психологии веса для женщин 35+. Анализ рынка, стратегия, воронка с лид-магнитом.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="meta">Образование</span>
+        <h3>IDЇOMA</h3>
+        <span class="geo">Европа</span>
+        <p>Онлайн-школа украинского языка для иностранцев (с 2022). Стратегия запуска Meta Ads под набор новых студентов.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="meta">Home Services</span>
+        <h3>US Lead Generation</h3>
+        <span class="geo">США</span>
+        <p>Водостоки, HVAC, кровля, безопасность дома. Видеокреативы и лидген в высококонкурентной нише США.</p>
+      </div>
+      <div class="pcard reveal">
+        <span class="meta">И это не всё</span>
+        <h3>Ещё десятки проектов</h3>
+        <span class="geo">разные ниши и гео</span>
+        <p>За плечами ещё много проектов в разных нишах и на разных рынках. Полные кейсы и цифры по вашей нише покажем на созвоне.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Охват</span>
+      <h2>Ниши и гео, в которых мы как дома</h2>
+    </div>
+    <div class="chips-block reveal">
+      <div>
+        <div class="ct">Гео</div>
+        <div class="chips">
+          <span class="chip on">Украина</span><span class="chip">Польша</span><span class="chip">Испания</span><span class="chip">Германия</span><span class="chip">Литва</span><span class="chip">Латвия</span><span class="chip">Израиль</span><span class="chip">Италия</span><span class="chip">ОАЭ</span><span class="chip">Африка</span><span class="chip">Индия</span><span class="chip">США</span><span class="chip">и другие</span>
+        </div>
+      </div>
+      <div>
+        <div class="ct">Ниши</div>
+        <div class="chips">
+          <span class="chip on">E-commerce</span><span class="chip">Недвижимость</span><span class="chip">Инфобизнес</span><span class="chip">Услуги</span><span class="chip">Esports</span><span class="chip">Образование</span><span class="chip">Энергетика</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Процесс</span>
+      <h2>Как мы работаем</h2>
+      <p>Четыре этапа: от первого брифа до стабильного масштабирования.</p>
+    </div>
+    <div class="proc reveal">
+      <div class="step"><div class="no">01</div><h3>Бриф и аудит</h3><p>Разбираем продукт, офферы и конкурентов, изучаем их креативы.</p></div>
+      <div class="step"><div class="no">02</div><h3>Стратегия и креативы</h3><p>Медиаплан, структура кампаний и первая партия креативов под гипотезы.</p></div>
+      <div class="step"><div class="no">03</div><h3>Запуск и тесты</h3><p>Параллельно тестируем аудитории и креативы, быстро отсекаем слабое.</p></div>
+      <div class="step"><div class="no">04</div><h3>Оптимизация и масштаб</h3><p>Еженедельные отчёты, масштабируем то, что работает, держим качество заявок под контролем.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-band reveal">
+      <span class="eyebrow">Контакты</span>
+      <h2>Обсудим ваш проект?</h2>
+      <p>Напишите нам — за 1 день подготовим предварительную оценку: оффер, гео, бюджет и ожидаемые цифры.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="https://wa.me/995591014389" target="_blank" rel="noopener">WhatsApp →</a>
+        <a class="btn btn-ghost" href="https://t.me/Nikiforchuk_Illia" target="_blank" rel="noopener">Telegram →</a>
+      </div>
+      <div class="contact-raw">
+        <span>WhatsApp: +995 591 014 389</span>
+        <span>Telegram: @Nikiforchuk_Illia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><span class="bt">NIKIFOR MEDIA</span></span>
+    <span>Performance-маркетинг · Meta Ads · © 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(window.matchMedia && window.matchMedia("(max-width:720px)").matches){
+    document.querySelectorAll(".proof figcaption").forEach(function(fc){
+      var s=document.createElement("span"); s.className="swipe";
+      s.textContent="  ·  ← проведите, чтобы рассмотреть →"; fc.appendChild(s);
+    });
+  }
+  var items = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }});
+    },{threshold:.12});
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add("in"); });
+  }
+  if(!reduce){
+    var nums = document.querySelectorAll("[data-to]");
+    var seen = new WeakSet();
+    function fmt(v,dec,pre,suf){
+      var s = dec>0 ? v.toFixed(dec) : Math.round(v).toLocaleString("ru-RU");
+      return (pre||"")+s+(suf||"");
+    }
+    var nio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting || seen.has(e.target)) return;
+        seen.add(e.target);
+        var el=e.target, to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||"0",10);
+        var pre=el.dataset.prefix||"", suf=el.dataset.suffix||"", t0=null, dur=1100;
+        function tick(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var e2=1-Math.pow(1-p,3);
+          el.textContent=fmt(to*e2,dec,pre,suf); if(p<1)requestAnimationFrame(tick); else el.textContent=fmt(to,dec,pre,suf); }
+        requestAnimationFrame(tick);
+      });
+    },{threshold:.5});
+    nums.forEach(function(n){ nio.observe(n); });
+  }
+})();
+</script>
+</body>
+</html>
